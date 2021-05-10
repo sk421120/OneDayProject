@@ -10,9 +10,7 @@
 	<p> 섭취 정보 등록
 	<form method="POST">
 		<p> 날짜 <input name="m_date"/>
-		<p> 식품명 <input name="f_name"/>
-		<p> 섭취량 <input name="m_intake"/>
-		<button>등록</button>
+		<button>입력</button>
 	</form>
 </body>
 </html>
