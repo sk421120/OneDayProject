@@ -13,8 +13,8 @@ import com.com.food.model.FoodDTO;
 import com.com.food.persistence.DBInfo;
 import com.com.food.service.FoodService;
 
-@WebServlet("/food/*")
-public class FoodController extends HttpServlet{
+@WebServlet("/daily/*")
+public class DailyController extends HttpServlet{
 	
 	protected FoodService fService;
 	public FoodController() {
@@ -26,7 +26,7 @@ public class FoodController extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		
-		req.getRequestDispatcher("/WEB-INF/views/food.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/daily.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class FoodController extends HttpServlet{
 		if( subPath.equals("/date") ) {
 			String m_date = req.getParameter("m_date");
 			
-			check
+			// check
 			
 			req.setAttribute("DAILY", subPath);
 			
@@ -48,7 +48,7 @@ public class FoodController extends HttpServlet{
 			List<FoodDTO> fdList = fService.selectByName("name");
 			req.setAttribute("FOODS", fdList);
 			
-			req.getRequestDispatcher("/WEB-INF/views/food.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/views/daily.jsp").forward(req, resp);
 		} else if( subPath.equals("/input")) {
 			String m_date = req.getParameter("m_date");
 			String f_name = req.getParameter("f_name");
