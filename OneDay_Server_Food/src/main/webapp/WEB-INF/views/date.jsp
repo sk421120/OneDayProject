@@ -8,28 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>다이어트를 도와줘!</h1>
-	<h3>[ 2021년 다이어트 작심삼일이라도 해보려는 마음 ]</h3>
-	<h4>어제보다 군것질을 줄여서 다이어트에 성공해보자..</h4>
-	<p>
-	<table>
-	<tr>
-		<th>
-		<form action="/myfood/date">
-			<button>날짜 조회</button>
-		</form>
-		</th>
-		<th>
-		<form action="/myfood/daily">
-			<button>섭취정보 등록</button>
-		</form>
-		</th>
-	</tr>
-	</table>
-	<c:if test="${empty DAILYS}"> <h4>섭취 기록이 없습니다</h4> </c:if>
-	<p>
-	
-	<c:if test="${not empty DAILYS}">
+	<a href="/myfood">메인으로 가기</a>
+	<form method="POST">
+		<p> 날짜 <input name="m_date" value='${DATE }'/>
+		<button>조회</button>
+	</form>
+	<p>${RESULT }</p>
+
+	<c:if test='${not empty DAILYS }'>
 	<table>
 		<tr>
 			<th> 번호 </th>
@@ -59,6 +45,5 @@
 		</c:forEach>
 	</table>
 	</c:if>
-	
 </body>
 </html>

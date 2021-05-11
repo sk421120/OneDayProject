@@ -12,9 +12,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DailyFoodDTO {
-	private String m_seq = "구분";
-	private String m_date = "날짜";
-	private String f_name = "식품명";
+	private int m_seq;
+	private String m_date;
+	private String f_name;
 	private int m_intake = 0;
 	private int f_cap = 0;
 	private int f_energy = 0;

@@ -1,7 +1,7 @@
 package com.com.food.persistence;
 
 public class DBInfo {
-	public static class FOOD {
+	public static class FOODS {
 		public static final String f_code = "식품코드";
 		public static final String f_name = "식품명";
 		public static final String f_date = "출시일";
