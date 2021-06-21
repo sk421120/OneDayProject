@@ -1,6 +1,7 @@
 -- food
 
 --DROP TABLE tbl_myfoods CASCADE CONSTRAINTS;
+--DROP VIEW view_일일섭취 CASCADE CONSTRAINTS;
 
 CREATE TABLE tbl_foods (
     f_code     CHAR(7) PRIMARY KEY,
@@ -73,4 +74,32 @@ FOREIGN KEY (m_fcode)
 REFERENCES tbl_foods(f_code);
 
 CREATE SEQUENCE seq_myfoods   START WITH 1    INCREMENT BY 1;
-    
+
+CREATE VIEW view_일일섭취 AS (
+SELECT
+    M.m_seq 구분,
+    M.m_date 날짜,
+    V.식품명,
+    M.m_intake 섭취량,
+    V.총내용량,
+    V.에너지,
+    V.단백질,
+    V.지방,
+    V.탄수화물,
+    V.총당류
+FROM tbl_myfoods M
+    LEFT JOIN view_식품정보 V
+        ON V.식품코드 = M.m_fcode
+);
+
+INSERT INTO tbl_myfoods ( m_seq, m_date, m_fcode, m_intake )
+VALUES(seq_myfoods.NEXTVAL, '2021-05-11', 'PD00092', 1);
+
+INSERT INTO tbl_myfoods ( m_seq, m_date, m_fcode, m_intake )
+VALUES(seq_myfoods.NEXTVAL, '2021-05-10', 'PD00090', 2);
+
+commit;
+
+ SELECT * FROM view_식품정보  WHERE 식품코드 = 'PD00113' ;
+ 
+SELECT * FROM view_일일섭취 ORDER BY 구분;

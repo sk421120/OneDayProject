@@ -1,0 +1,87 @@
+@charset "UTF-8";
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width:100%;
+	height:100vh;
+}
+
+header {
+	/* #216e39  #30a14e #40c463 #9be9a8 #ebedf0 */
+	background-color: #30a14e;
+	color:white;
+	text-shadow : 2px 2px 2px #216e39;
+	text-align: center;
+	padding:2rem;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width:90%;
+	margin:10px auto;
+}
+
+table th, td {
+	border-top: 1px solid gray;
+	padding:5px 8px;
+}
+
+table td {
+	margin-left: 20px;
+}
+
+table tr:last-child td {
+	border-bottom: 1px solid gray;
+}
+
+table tr:first-child th {
+	background-color: #9be9a8;
+}
+
+table tr:hover {
+	background-color: #9be9a8a2;
+	cursor: pointer;
+}
+
+div.btn_box {
+	width:90%;
+	margin:5px auto;
+	text-align: right;
+}
+
+button {
+	padding:10px 20px;
+	outline:0;
+	border: 0;
+	border-radius: 5px;
+}
+
+button:hover {
+	box-shadow: 2px 2px 2px #9be9a8a2;
+	cursor: pointer;
+}
+
+button:btn_insert {
+	background-color: darksalmon;
+	color:white;
+}
+
+button:btn_save {
+	background-color: #ebce78;
+	color:white;
+}
+
+button:btn_reset {
+	background-color: #ceeb78;
+	color:white;
+}
+
+button:btn_update {
+	background-color: #78ebeb;
+	color:white;
+} 
