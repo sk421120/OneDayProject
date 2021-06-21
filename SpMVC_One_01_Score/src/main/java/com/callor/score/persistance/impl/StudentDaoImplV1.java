@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.callor.score.model.ScoreDTO;
 import com.callor.score.model.StudentVO;
 import com.callor.score.persistance.StudentDao;
 
@@ -34,7 +35,11 @@ public class StudentDaoImplV1 implements StudentDao{
 	@Override
 	public StudentVO findById(String pk) {
 		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM tbl_student ";
+		sql += "WHERE st_num = ? ";
+		
+		return jdbcTemplate.queryForObject(sql, new Object[] { pk },
+				new BeanPropertyRowMapper<StudentVO>(StudentVO.class));
 	}
 
 	@Override
@@ -45,8 +50,25 @@ public class StudentDaoImplV1 implements StudentDao{
 
 	@Override
 	public int update(StudentVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 학생정보 수정
+		String sql = " UPDATE tbl_student SET ";
+		sql += "st_name = ? ,";
+		sql += "st_dept = ? ,";
+		sql += "st_grade = ? ,";
+		sql += "st_tel = ? ,";
+		sql += "st_addr = ? ";
+		sql += "WHERE st_num = ? ";
+		
+		Object[] params = new Object[] {
+				vo.getSt_name(),
+				vo.getSt_dept(),
+				vo.getSt_grade(),
+				vo.getSt_tel(),
+				vo.getSt_addr(),
+				vo.getSt_num()
+		};
+		
+		return jdbcTemplate.update(sql, params);
 	}
 
 	@Override
@@ -60,8 +82,7 @@ public class StudentDaoImplV1 implements StudentDao{
 		// TODO 학생정보에서 가장 큰 값 추출
 		String sql = " SELECT MAX(st_num) FROM tbl_student ";
 
-		String st_num = (String) jdbcTemplate.queryForObject(sql, String.class);
-		return st_num;
+		return jdbcTemplate.queryForObject(sql, String.class);
 	}
 
 }

@@ -14,12 +14,26 @@
 		text-align: center;
 	}
 </style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	document.querySelector("table#scList").addEventListener("click", function(ev){
+		
+		// 가장 안쪽 tag TD의 이름을 가져와라
+		let tag_name = ev.target.tagName;
+		
+		if(tag_name == "TD") {
+			let st_seq = ev.target.closest("TR").dataset.seq;
+			document.location.href="${rootPath}/stscore/view?st_num=" + st_seq;
+		}
+	})	// table의 click
+})
+</script>
 </head>
 <%@ include file="/WEB-INF/views/include/include_head.jspf" %>
 <body>
 <%@ include file="/WEB-INF/views/include/include_header.jspf" %>
 <c:if test="${not empty SCOREDTO}">
-<table>
+<table id="scList">
 	<tr>
 		<th>학번</th>
 		<th>이름</th>
@@ -30,7 +44,7 @@
 		<th>평균</th>
 	</tr>
 	<c:forEach items="${SCOREDTO}" var="ST">
-		<tr>
+		<tr data-seq="${ST.st_num}">
 			<td>${ST.st_num }</td>
 			<td>${ST.st_name }</td>
 			<td>${ST.st_dept }</td>

@@ -41,5 +41,11 @@ public class ScoreServiceImplV1 implements ScoreService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public ScoreDTO findById(String pk) {
+		// TODO 학번으로 학생 성적정보 조회
+		return scoreVDao.findById(pk);
+	}
 	
 }

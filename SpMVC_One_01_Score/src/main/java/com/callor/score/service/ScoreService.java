@@ -9,6 +9,7 @@ public interface ScoreService {
 
 	public List<ScoreDTO> scoreView();
 	public List<ScoreVO> scoreList(String pk);
+	public ScoreDTO findById(String pk);
 
 	public int insert(ScoreVO vo);
 }

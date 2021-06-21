@@ -34,8 +34,12 @@ public class ScoreViewDaoImplV1 implements ScoreVDao{
 
 	@Override
 	public ScoreDTO findById(String pk) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO 학번으로 학생 성적 조회
+		String sql = "SELECT * FROM view_성적정보 ";
+		sql += "WHERE st_num = ? ";
+		
+		return jdbcTemplate.queryForObject(sql, new Object[] { pk },
+				new BeanPropertyRowMapper<ScoreDTO>(ScoreDTO.class));
 	}
 
 	@Override
