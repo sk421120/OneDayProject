@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.callor.score.model.ScoreDTO;
 import com.callor.score.model.ScoreVO;
+import com.callor.score.persistance.ScoreDao;
 import com.callor.score.persistance.ScoreVDao;
 import com.callor.score.service.ScoreService;
 
@@ -16,9 +17,11 @@ import lombok.extern.slf4j.Slf4j;
 public class ScoreServiceImplV1 implements ScoreService{
 
 	protected final ScoreVDao scoreVDao;
+	protected final ScoreDao scoreDao;
 	
-	public ScoreServiceImplV1(ScoreVDao scoreVDao) {
+	public ScoreServiceImplV1(ScoreVDao scoreVDao, ScoreDao scoreDao) {
 		this.scoreVDao = scoreVDao;
+		this.scoreDao =  scoreDao;
 	}
 	
 	@Override
@@ -32,8 +35,7 @@ public class ScoreServiceImplV1 implements ScoreService{
 	@Override
 	public List<ScoreVO> scoreList(String pk) {
 		// TODO 개인 성적 조회
-		
-		return null;
+		return scoreDao.scoreListById(pk);
 	}
 
 	@Override
