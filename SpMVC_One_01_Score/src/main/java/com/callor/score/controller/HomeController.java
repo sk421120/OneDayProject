@@ -1,7 +1,6 @@
 package com.callor.score.controller;
 
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +22,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Model model) {
 		
 		List<ScoreDTO> sdList = scService.scoreView();
+		log.debug("Conroller {} " , sdList.toString());
 
 		model.addAttribute("SCOREDTO", sdList);
-		
+	
+//		return null;
 		return "home";
 	}
 	

@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>성적처리 2021</title>
-<link href="${rootPath}/static/css/main_layout.css?ver=2021-06-18-000" rel="stylesheet">
-<link href="${rootPath}/static/css/main_home.css?ver=2021-06-18-000" rel="stylesheet">
-<link href="${rootPath}/static/css/main_form.css?ver=2021-06-18-000" rel="stylesheet">
+<link href="${rootPath}/static/css/main_layout.css?ver=2021-06-22-000" rel="stylesheet">
+<link href="${rootPath}/static/css/main_home.css?ver=2021-06-22-000" rel="stylesheet">
+<link href="${rootPath}/static/css/main_form.css?ver=2021-06-22-000" rel="stylesheet">
 </head>

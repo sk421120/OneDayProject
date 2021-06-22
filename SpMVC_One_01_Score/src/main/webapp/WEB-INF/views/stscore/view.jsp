@@ -7,10 +7,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+table th, td {
+	border-bottom: 1px solid gray;
+}
+
+table.scoreview tr:hover, .scorelist tr:hover {
+	cursor:default;
+}
+
+table tr td {
+	text-align: center;
+}
+
+</style>
+<script>
+	var rootPath="${rootPath}";
+	var st_num = "${SCOREDTO.st_num}";
+</script>
+<script src="${rootPath}/static/js/score_view.js?ver=2021-06-22-000"></script>
 </head>
+<%@ include file="/WEB-INF/views/include/include_head.jspf" %>
 <body>
-<table>
-	<tr>
+<%@ include file="/WEB-INF/views/include/include_header.jspf" %>
+<table class="scoreview">
+	<tr data-seq="${SCOREDTO.st_num}">
 		<th>학번</th>
 		<td>${SCOREDTO.st_num}</td>
 		<th>전공</th>
@@ -26,15 +47,15 @@
 		<button id="btn_update">학생정보 수정</button>
 	</div>
 </table>
-<table>
+<table class="scorelist">
 	<tr>
 		<th>No.</th>
 		<th>과목명</th>
 		<th>점수</th>
 	</tr>
-	<c:forEach items="${SCORELIST}" var="SC">
+	<c:forEach items="${SCORELIST}" var="SC"  varStatus="index">
 	<tr>
-		<td>index</td>
+		<td>${index.count}</td>
 		<td>${SC.sc_subject}</td>
 		<td>${SC.sc_score}</td>
 	</tr>

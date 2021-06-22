@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </c:if>
 
 <c:if test="${empty SCOREDTO }">
-	<p>성적정보가 없습니다!</p>
+	<p>성적정보가 없습니다!!</p>
 	<p>성적정보를 입력해주세요!!</p>
 </c:if>
 </body>

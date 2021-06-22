@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 @Repository("studentServiceV1")
 public class StudentServiceImplV1 implements StudentService {
 	
-
 	protected final StudentDao stDao;
 
 	public StudentServiceImplV1(StudentDao stDao) {
@@ -29,6 +28,12 @@ public class StudentServiceImplV1 implements StudentService {
 	public int update(StudentVO stVO) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public StudentVO findById(String st_num) {
+		// TODO 학번으로 학생 조회
+		return stDao.findById(st_num);
 	}
 
 }

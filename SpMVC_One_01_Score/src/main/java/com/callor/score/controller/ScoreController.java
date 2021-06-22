@@ -34,8 +34,7 @@ public class ScoreController {
 		ScoreDTO scDTO = scService.findById(st_num);
 		List<ScoreVO> scList = scService.scoreList(st_num);
 		
-		// scoredto 받고
-		// scorevo list받고 세팅
+		// scoredto 받고 scorevo list받고 세팅
 		model.addAttribute("SCOREDTO", scDTO);
 		model.addAttribute("SCORELIST", scList);
 		return "stscore/view";
