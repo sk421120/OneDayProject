@@ -27,7 +27,7 @@ public class StudentServiceImplV1 implements StudentService {
 	@Override
 	public int update(StudentVO stVO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return stDao.update(stVO);
 	}
 
 	@Override

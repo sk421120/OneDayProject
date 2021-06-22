@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.callor.score.model.ScoreVO;
 import com.callor.score.model.StudentVO;
 import com.callor.score.service.StudentService;
 
@@ -31,5 +32,11 @@ public class StudentController {
 		StudentVO stVO = stService.findById(st_num);
 		model.addAttribute("STUDENT",stVO);
 		return "student/update";
+	}
+	
+	@RequestMapping(value="/update", method = RequestMethod.POST)
+	public String update(StudentVO vo) {
+		stService.update(vo);
+		return "redirect:/student";
 	}
 }

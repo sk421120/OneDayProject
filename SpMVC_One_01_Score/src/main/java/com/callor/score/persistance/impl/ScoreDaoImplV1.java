@@ -23,7 +23,9 @@ public class ScoreDaoImplV1 implements ScoreDao{
 	@Override
 	public List<ScoreVO> selectALL() {
 		// TODO Auto-generated method stub
-		return null;
+		String sql = " SELECT * FROM tbl_score ";
+		
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<ScoreVO>(ScoreVO.class));
 	}
 
 	@Override
@@ -34,8 +36,19 @@ public class ScoreDaoImplV1 implements ScoreDao{
 
 	@Override
 	public int insert(ScoreVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 성적 추가
+		String sql = " INSERT INTO tbl_score ";
+		sql += "( sc_seq, sc_stnum, sc_subject, sc_score ) ";
+		sql += " VALUES ( ?, ?, ?, ? )";
+		
+		Object[] params = new Object[] {
+				vo.getSc_seq(),
+				vo.getSc_stnum(),
+				vo.getSc_subject(),
+				vo.getSc_score()
+		};
+		
+		return jdbcTemplate.update(sql, params);
 	}
 
 	@Override
